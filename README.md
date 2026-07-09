@@ -162,7 +162,7 @@ fastapi-login-system/
 
 ## Swagger Documentation
 
-> Add screenshot here
+> docs/dashboard.png
 
 ```
 docs/swagger.png
