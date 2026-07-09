@@ -1,78 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
 
-    <title>{% block title %}FastAPI Login System{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {% block title %} FastAPI Authentication Platform {% endblock %}
+    </title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
-    {% block extra_css %}{% endblock %}
-</head>
+    <!-- Main CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/style.css') }}"
+    />
 
-<body>
+    {% block extra_css %} {% endblock %}
+  </head>
 
-    <!-- Background -->
+  <body>
+    <!-- Animated Background -->
+
     <div class="background">
-        <div class="circle circle1"></div>
-        <div class="circle circle2"></div>
+      <div class="circle circle1"></div>
+
+      <div class="circle circle2"></div>
     </div>
 
-    <!-- Navigation -->
+    <!-- ========================= -->
+    <!-- Header -->
+    <!-- ========================= -->
+
     <header>
-        <nav class="navbar">
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <i class="fa-solid fa-shield-halved"></i>
 
-            <div class="logo">
-                FastAPI Login
-            </div>
+          <span>FastAPI Authentication Platform</span>
+        </a>
 
-            <ul class="nav-links">
+        <ul class="nav-links">
+          <li>
+            <a href="/">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
 
-                <li>
-                    <a href="/">Home</a>
-                </li>
+          <li>
+            <a href="/auth/login">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Login
+            </a>
+          </li>
 
-                <li>
-                    <a href="/auth/login">Login</a>
-                </li>
-
-                <li>
-                    <a href="/auth/register">Register</a>
-                </li>
-
-            </ul>
-
-        </nav>
+          <li>
+            <a href="/auth/register">
+              <i class="fa-solid fa-user-plus"></i>
+              Register
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
+    <!-- ========================= -->
     <!-- Main Content -->
-    <main class="container">
+    <!-- ========================= -->
 
-        {% block content %}
-        {% endblock %}
+    <main class="container">{% block content %} {% endblock %}</main>
 
-    </main>
-
+    <!-- ========================= -->
     <!-- Footer -->
+    <!-- ========================= -->
+
     <footer>
+      <div class="footer-content">
+        <h3>
+          Designed & Developed by
 
-        <p>
-            © 2026 FastAPI Login System |
-            Built with ❤️ using FastAPI
-        </p>
+          <span>Fahad Abdullah</span>
+        </h3>
 
+        <p>Artificial Intelligence & Machine Learning Student</p>
+
+        <div class="footer-links">
+          <a href="mailto:fa103784@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+
+          <a href="https://github.com/Fahad-me" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/fahad-abdullah-694584253"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <a href="https://www.instagram.com/fahad_abdullah_00" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+
+        <p class="copyright">© 2026 FastAPI Authentication Platform</p>
+      </div>
     </footer>
 
     <!-- JavaScript -->
+
     <script src="{{ url_for('static', path='js/app.js') }}"></script>
 
-    {% block extra_js %}
-    {% endblock %}
-
-</body>
+    {% block extra_js %} {% endblock %}
+  </body>
 </html>

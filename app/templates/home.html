@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | FastAPI Authentication Platform
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================================== -->
+<!-- Hero Section -->
+<!-- ===================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            🔐 Secure Authentication Platform
+        </span>
+
+        <h1>
+            FastAPI Authentication Platform
+        </h1>
+
+        <p class="hero-description">
+
+            A modern authentication platform built using
+            <strong>FastAPI</strong>,
+            <strong>PostgreSQL</strong>,
+            <strong>SQLAlchemy</strong>,
+            and
+            <strong>JWT Authentication</strong>.
+
+        </p>
+
+        <p class="hero-subtitle">
+
+            Secure user registration, login, protected dashboard,
+            password hashing and JWT authentication in one platform.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#features" class="btn btn-primary">
+                Explore Project
+            </a>
+
+            <a href="/auth/login" class="btn">
+                Login
+            </a>
+
+            <a href="/auth/register" class="btn">
+                Register
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================== -->
+<!-- Features -->
+<!-- ===================================== -->
+
+<section id="features" class="features">
+
+    <h2>
+        Platform Features
+    </h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                JWT Authentication
+            </h3>
+
+            <p>
+                Secure authentication using JSON Web Tokens.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Password Security
+            </h3>
+
+            <p>
+                Passwords are encrypted securely using bcrypt hashing.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🐘
+            </div>
+
+            <h3>
+                PostgreSQL Database
+            </h3>
+
+            <p>
+                Store user information safely inside PostgreSQL.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                FastAPI Backend
+            </h3>
+
+            <p>
+                High-performance backend powered by FastAPI.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🚀
+            </div>
+
+            <h3>
+                Protected Dashboard
+            </h3>
+
+            <p>
+                Only authenticated users can access dashboard pages.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💻
+            </div>
+
+            <h3>
+                Modern UI
+            </h3>
+
+            <p>
+                Responsive interface built using HTML, CSS and JavaScript.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
