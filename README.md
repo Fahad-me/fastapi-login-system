@@ -162,7 +162,7 @@ fastapi-login-system/
 
 ## Swagger Documentation
 
-> docs/dashboard.png
+> docs/swagger.png
 
 ```
 docs/swagger.png
@@ -172,7 +172,7 @@ docs/swagger.png
 
 ## PostgreSQL Database
 
-> Add screenshot here
+> docs/database.png
 
 ```
 docs/database.png
@@ -182,7 +182,7 @@ docs/database.png
 
 ## Login Page
 
-> Add screenshot here
+> docs/login.png
 
 ```
 docs/login.png
@@ -192,7 +192,7 @@ docs/login.png
 
 ## Dashboard
 
-> Add screenshot here
+> docs/dashboard.png
 
 ```
 docs/dashboard.png
