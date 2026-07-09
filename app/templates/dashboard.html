@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | FastAPI Login System{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+            <h2>FastAPI</h2>
+            <p>Login System</p>
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li class="active">
+                <a href="/users/dashboard">
+                    🏠 Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/users/profile">
+                    👤 Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    ⚙ Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    🔒 Security
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    📊 Analytics
+                </a>
+            </li>
+
+            <li>
+                <a href="/auth/logout">
+                    🚪 Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <section class="dashboard-content">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back!</p>
+            </div>
+
+            <div class="user-info">
+
+                <div class="avatar">
+                    U
+                </div>
+
+                <div>
+
+                    <strong>{{ user.full_name if user else "User" }}</strong>
+
+                    <p>
+                        {{ user.email if user else "user@example.com" }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="dashboard-cards">
+
+            <div class="card">
+
+                <h3>Total Logins</h3>
+
+                <h2>152</h2>
+
+                <p>Successful logins</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Account Status</h3>
+
+                <h2>Active</h2>
+
+                <p>Your account is secure.</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Member Since</h3>
+
+                <h2>2026</h2>
+
+                <p>Registration Year</p>
+
+            </div>
+
+        </div>
+
+        <!-- Profile -->
+        <div class="profile-card">
+
+            <h2>Profile Information</h2>
+
+            <table class="profile-table">
+
+                <tr>
+                    <th>Full Name</th>
+                    <td>{{ user.full_name if user else "N/A" }}</td>
+                </tr>
+
+                <tr>
+                    <th>Username</th>
+                    <td>{{ user.username if user else "N/A" }}</td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email if user else "N/A" }}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>
+
+                        {% if user and user.is_active %}
+                            <span class="status active">
+                                Active
+                            </span>
+                        {% else %}
+                            <span class="status inactive">
+                                Inactive
+                            </span>
+                        {% endif %}
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+
+            <h2>Quick Actions</h2>
+
+            <div class="action-buttons">
+
+                <button class="btn btn-primary">
+                    Edit Profile
+                </button>
+
+                <button class="btn">
+                    Change Password
+                </button>
+
+                <button class="btn btn-danger">
+                    Delete Account
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}FastAPI Login System{% endblock %}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                FastAPI Login
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="/">Home</a>
+                </li>
+
+                <li>
+                    <a href="/auth/login">Login</a>
+                </li>
+
+                <li>
+                    <a href="/auth/register">Register</a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 FastAPI Login System |
+            Built with ❤️ using FastAPI
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', path='js/app.js') }}"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+
+</body>
+</html>

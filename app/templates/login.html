@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Login | FastAPI Login System{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <div class="auth-header">
+            <h1>Welcome Back 👋</h1>
+            <p>Sign in to continue to your dashboard.</p>
+        </div>
+
+        <form id="loginForm" action="/auth/login" method="POST">
+
+            <div class="form-group">
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        onclick="togglePassword('password', this)"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="remember-row">
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        id="remember"
+                        name="remember"
+                    >
+
+                    Remember Me
+
+                </label>
+
+                <a href="#" class="forgot-password">
+                    Forgot Password?
+                </a>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary btn-full"
+            >
+                Login
+            </button>
+
+        </form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <div class="social-login">
+
+            <button class="btn btn-google" type="button">
+                Continue with Google
+            </button>
+
+            <button class="btn btn-github" type="button">
+                Continue with GitHub
+            </button>
+
+        </div>
+
+        <div class="auth-footer">
+
+            <p>
+                Don't have an account?
+
+                <a href="/auth/register">
+                    Register
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
