@@ -3,7 +3,8 @@ from fastapi import (
     Depends,
     Request,
     status,
-    Form
+    Form,
+    HTTPException
 )
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
@@ -33,17 +34,18 @@ templates = Jinja2Templates(
 # ----------------------------------------
 # Login Page
 # ----------------------------------------
-@router.get(
-    "/login",
-    response_class=HTMLResponse
-)
+@router.get("/login", response_class=HTMLResponse)
 def login_page(request: Request):
+
+    toast = request.session.pop("toast", None)
 
     return templates.TemplateResponse(
         "login.html",
         {
             "request": request,
-            "title": "Login"
+            "title": "Login",
+            "message": toast["message"] if toast else None,
+            "message_type": toast["type"] if toast else None,
         }
     )
 
@@ -86,6 +88,7 @@ def register(
 # ----------------------------------------
 @router.post("/register-form")
 def register_form(
+    request: Request,
     full_name: str = Form(...),
     username: str = Form(...),
     email: str = Form(...),
@@ -100,7 +103,30 @@ def register_form(
         password=password,
     )
 
-    register_user(db, user)
+    try:
+        register_user(db, user)
+
+    except HTTPException as e:
+        print("Exception:", e.detail)
+
+        return templates.TemplateResponse(
+            "register.html",
+            {
+                "request": request,
+                "title": "Register",
+                "message": e.detail,
+                "message_type": "error",
+                "full_name": full_name,
+                "username": username,
+                "email": email
+            },
+            status_code=e.status_code
+        )
+    
+    request.session["toast"] = {
+    "message": "Registration successful! Please login.",
+    "type": "success"
+    }
 
     return RedirectResponse(
         url="/auth/login",

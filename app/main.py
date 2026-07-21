@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.middleware.sessions import SessionMiddleware
 
 from app.core.database import Base, engine
 from app.models.user import User
@@ -18,6 +19,11 @@ app = FastAPI(
     title="FastAPI Login System",
     description="A complete authentication system built with FastAPI",
     version="1.0.0"
+)
+
+app.add_middleware(
+    SessionMiddleware,
+    secret_key="your_super_secret_key_change_this"
 )
 
 # ------------------------------------

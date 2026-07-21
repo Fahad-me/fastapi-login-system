@@ -384,4 +384,15 @@ This project is licensed under the MIT License.
 
 Made with ❤️ using FastAPI & PostgreSQL
 
+
+we also made 
+ ├── Development_Journal.md
+│   ├── Project_Report.md
+│   ├── Interview_Notes.md
+│   ├── Bugs_and_Solutions.md
+│   ├── Git_History.md
+│   ├── API_Documentation.md
+│   ├── Deployment_Guide.md
+│   └── Future_Roadmap.md
+
 </div>

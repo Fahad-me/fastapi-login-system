@@ -77,10 +77,19 @@
     </header>
 
     <!-- ========================= -->
+    <!-- Toast Notification -->
+    <!-- ========================= -->
+
+    {% if message is defined and message %}
+    <div id="toast" class="toast toast-{{ message_type or 'info' }}">
+      {{ message }}
+    </div>
+    {% endif %}
+    <!-- ========================= -->
     <!-- Main Content -->
     <!-- ========================= -->
 
-    <main class="container">{% block content %} {% endblock %}</main>
+    <main class="container">{% block content %}{% endblock %}</main>
 
     <!-- ========================= -->
     <!-- Footer -->
@@ -126,5 +135,22 @@
     <script src="{{ url_for('static', path='js/app.js') }}"></script>
 
     {% block extra_js %} {% endblock %}
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toast = document.getElementById("toast");
+
+        if (!toast) return;
+
+        setTimeout(() => {
+          toast.style.transition = "opacity 0.4s ease";
+          toast.style.opacity = "0";
+        }, 3500);
+
+        setTimeout(() => {
+          toast.remove();
+        }, 3900);
+      });
+    </script>
   </body>
 </html>
